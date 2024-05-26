@@ -28,7 +28,7 @@ const thoughtSchema = new Schema(
           virtuals: true,
         },
         id: false,
-      }
+    }
 );
 
 thoughtSchema
@@ -37,6 +37,7 @@ thoughtSchema
         return this.reaction.length;
     });
 
-    const Thought = model('thought', thoughtSchema);
 
-    module.exports = Thought;
+const Thought = model('thought', thoughtSchema);
+
+module.exports = Thought;
