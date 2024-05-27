@@ -101,7 +101,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    async removeReaction(req,res) {
+    async deleteReaction(req,res) {
         try {
             const thought = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId},
