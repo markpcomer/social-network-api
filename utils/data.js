@@ -13,7 +13,7 @@ const userSeedData = [
     },
     {
         username: 'oddjob',
-        email: 'haberdasker@spectre.org'
+        email: 'haberdasher@spectre.org'
     },
     {
         username: 'lechiffre',
@@ -36,12 +36,40 @@ const thoughtSeedData = [
     },
     {
         thought: '...',
-        username: 'haberdasker@spectre.org'
+        username: 'haberdasher@spectre.org'
     },
     {
         thought: 'I hope our little game isn\'t causing you to perspire.',
         username: 'lechiffre',
     }
 ];
+
+const getThought = (int) => {
+    let results = [];
+    for (let i=0; i<int; i++) {
+        results.push({
+            /*
+            thoughtText:
+            createdAt:
+            username:
+            reaction
+            */
+        })
+    }
+    return results;
+}
+
+const getReaction = (int) => {
+    let results = [];
+    for (let i = 0; i < int; i++) {
+        results.push({
+            /*
+            reactionBody:
+            username:
+            */
+        })
+    }
+    return results;
+}
 
 module.exports = { userSeedData, thoughtSeedData };
