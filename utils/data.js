@@ -43,17 +43,17 @@ const thoughtSeedData = [
         username: 'lechiffre',
     }
 ];
-
+/*
 const getThought = (int) => {
     let results = [];
     for (let i=0; i<int; i++) {
         results.push({
-            /*
+            
             thoughtText:
             createdAt:
             username:
             reaction
-            */
+           
         })
     }
     return results;
@@ -63,13 +63,14 @@ const getReaction = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
         results.push({
-            /*
+            
             reactionBody:
             username:
-            */
+            
         })
     }
     return results;
 }
-
+*/
+// module.exports
 module.exports = { userSeedData, thoughtSeedData };

@@ -7,8 +7,6 @@ module.exports = {
             const users = await User.find()
             .select('-__v')
 
-            
-
             res.json(users);
         } catch (err) {
             res.status(500).json(err);
@@ -45,7 +43,7 @@ module.exports = {
             const user = await User.findOneAndUpdate(
                 { _id: req.params.userId },
                 { $set: req.body },
-                { runValidators: true, new: true}
+                { runValidators: true, new: true }
             );
 
             if(!user){

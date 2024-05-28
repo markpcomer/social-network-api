@@ -7,17 +7,14 @@ connection.on('error', (err) => err);
 connection.once('open', async() => {
     console.log('connected');
 
-    let thoughtCheck = await connection.db.listCollections({ name: 'thought' }).toArray();
-    if (thoughtCheck.length) {
-        await connection.dropCollection('thought');
+    const thoughtCount = await Thought.countDocuments();
+    const userCount = await User.countDocuments();
+    if (thoughtCount>0) {
+        await Thought.collection.drop();
     }
-
-    let userCheck = await connection.db.listCollections({ name: 'user '}).toArray();
-    if (userCheck.length) {
-        await connection.dropCollection('user');
+    if (userCount>0) {
+        await User.collection.drop();
     }
-
-    
 
     const user = userSeedData;
     const thought = thoughtSeedData;
