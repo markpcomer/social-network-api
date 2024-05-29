@@ -3,6 +3,7 @@ const { User, Thought } = require('../models');
 module.exports = {
     // Get all users
     async getUsers(req, res) {
+        console.log("getUsers");
         try {
             const user = await User.find()
             .select('-__v')
@@ -14,22 +15,24 @@ module.exports = {
     },
     // Get a single user
     async getSingleUser(req, res) {
+        console.log("getUsers");
         try {
             const user = await User.findOne({ _id: req.params.userId })
                 .select('-__v')
                 .populate('friend')
-                .populate('thought')
-                .populate('reaction');
+                .populate('thought');
 
                 if(!user){
                     return res.status(404).json({ message: 'No user with that ID'});
                 }
                 res.json(user);
         } catch (err) {
+            console.log(err)
             res.status(500).json(err);
         }
     },
     async createUser(req, res) {
+            console.log("create user");
         try {
             const user = await User.create(req.body);
             res.json(user);
