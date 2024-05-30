@@ -23,23 +23,23 @@ const userSeedData = [
 
 const thoughtSeedData = [
     {
-        thought: 'I Shall Look Forward To Personally Exterminating You, Mr. Bond.',
+        thoughtText: 'I Shall Look Forward To Personally Exterminating You, Mr. Bond.',
         username: 'ernststavro',
     },
     {
-        thought: 'No Mr. Bond, I expect you to die.',
+        thoughtText: 'No Mr. Bond, I expect you to die.',
         username: 'auricgoldfiner',
     },
     {
-        thought: 'You know, James... I was always better.',
+        thoughtText: 'You know, James... I was always better.',
         username: 'alectrevelyan',
     },
     {
-        thought: '...',
+        thoughtText: '...',
         username: 'oddjob'
     },
     {
-        thought: 'I hope our little game isn\'t causing you to perspire.',
+        thoughtText: 'I hope our little game isn\'t causing you to perspire.',
         username: 'lechiffre',
     }
 ];

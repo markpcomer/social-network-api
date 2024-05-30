@@ -65,9 +65,7 @@ module.exports = {
     },
     async deleteThought(req, res) {
         try {
-            const userTest = await User.findOneAndDelete(
-                { _id: req.params.userId })
-                console.log("user test", userTest)
+ 
             const thought = await Thought.findOneAndDelete(
                 { _id: req.params.thoughtId }
                 )
