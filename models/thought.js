@@ -1,7 +1,10 @@
+// Importing dependencies from the mongoose library
 const { Schema, model } = require('mongoose');
 
+// Imports reactionSchema to be inputted into thoughtSchema
 const reaction = require('./reaction');
 
+// Schema to create the Thought model
 const thoughtSchema = new Schema(
     {
        thoughtText: {
@@ -31,13 +34,16 @@ const thoughtSchema = new Schema(
     }
 );
 
+// Defining a virtual property 'reactionCount'
+//  --> returns the number of reactions
 thoughtSchema
     .virtual('reactionCount')
     .get(function() {
         return this.reaction.length;
     });
 
-
+// Creates Thought model from thoughtSchema
 const Thought = model('Thought', thoughtSchema);
 
+// Turns Thought model into module & exports it
 module.exports = Thought;

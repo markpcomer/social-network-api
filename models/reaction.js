@@ -1,5 +1,7 @@
+// Importing dependencies from the mongoose library
 const { Schema, Types } = require('mongoose');
 
+// Schema to create the Reaction model
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -31,6 +33,7 @@ const reactionSchema = new Schema(
     }
 );
 
+// Exports reactionSchema to be used in thought.js
 module.exports = reactionSchema;
 
 

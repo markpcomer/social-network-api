@@ -10,7 +10,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    //Get a single thought
+    //Get a single thought by ID
     async getSingleThought(req,res) {
         try {
             const thought = await Thought.findOne({ _id: req.params.thoughtId });
@@ -23,6 +23,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // Create new thought
     async createThought(req,res){
         try{
             const thought = await Thought.create(req.body);
@@ -43,14 +44,13 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // Update thought by ID
     async updateThought(req, res) {
        try{
             const thoughtData = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId },
                 { $set: req.body },
                 { runValidators: true, new: true}   
-                
-
             );
 
             if(!thoughtData){
@@ -63,13 +63,13 @@ module.exports = {
             res.status(500).json(err);
        }
     },
+    // Delete thought by ID
     async deleteThought(req, res) {
         try {
- 
             const thought = await Thought.findOneAndDelete(
                 { _id: req.params.thoughtId }
                 )
-            console.log("thought", thought)
+        
             if(!thought) {
                 return res.status(404).json({ message: 'No thought with this ID'});
             }
@@ -89,13 +89,13 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // Create reaction in a single thought's 'reactions' array field
     async addReaction(req, res) {
         try{
             const thought = await Thought.findOneAndUpdate(
                 { _id: req.params.thoughtId },
                 { $addToSet: { reaction: req.body }},
-                { runValidators: true, new: true }
-                
+                { runValidators: true, new: true } 
             );
 
             if(!thought){
@@ -107,6 +107,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // Delete reaction by ID
     async deleteReaction(req,res) {
         try {
             const thought = await Thought.findOneAndUpdate(

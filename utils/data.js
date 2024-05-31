@@ -1,3 +1,4 @@
+// username & email data for user-controller.js
 const userSeedData = [
     {
         username: 'ernststavro',
@@ -21,6 +22,7 @@ const userSeedData = [
     },
 ];
 
+// username & thought data for thought-controller.js
 const thoughtSeedData = [
     {
         thoughtText: 'I Shall Look Forward To Personally Exterminating You, Mr. Bond.',
@@ -44,5 +46,5 @@ const thoughtSeedData = [
     }
 ];
 
-
+// Exporting userSeedData & houghtSeedData in one module
 module.exports = { userSeedData, thoughtSeedData };

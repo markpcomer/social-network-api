@@ -14,7 +14,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // Get a single user
+    // Get a single user by ID
     async getSingleUser(req, res) {
         try {
             const user = await User.findOne({ _id: req.params.userId })
@@ -30,6 +30,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // Create a new user
     async createUser(req, res) {
         try {
             const user = await User.create(req.body);
@@ -38,6 +39,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // Update user by ID
     async updateUser(req, res){
         try{
             const user = await User.findOneAndUpdate(
@@ -55,6 +57,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // Delete user by ID
     async deleteUser(req, res) {
         try {
             const user = await User.findOneAndDelete(
@@ -70,6 +73,7 @@ module.exports = {
         res.status(500).json(err);
         }
     },
+    // Add friend to user's friend list
     async addFriend(req, res) {
         try {
             console.log("add friend");
@@ -77,7 +81,6 @@ module.exports = {
                 { _id: req.params.userId },
                 { $addToSet: { friend: req.params.friendId }},
                 { new: true },
-                
             );
 
             if(!user){
@@ -90,6 +93,7 @@ module.exports = {
             console.log("Not working");
         }
     },
+    // Delete friend to user's friend list by ID
     async deleteFriend(req, res) {
         try {
             const user = await User.findOneAndUpdate(
